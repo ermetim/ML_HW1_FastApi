@@ -175,3 +175,4 @@ def upload_csv(file: UploadFile):
     return response
 
 # uvicorn main:app --host 0.0.0.0 --port 8000 # For render.com
+# uvicorn main:app --host 0.0.0.0 --port 8000
