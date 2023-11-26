@@ -63,8 +63,8 @@ def load_model(file_name):
     """
     Загрузка сохраненной модели из .pkl файла
     """
-    file_path = os.path.join(os.getcwd(), 'models', file_name)
-    return pickle.load(open(file_path, 'rb'))
+    # file_path = os.path.join(os.getcwd(), 'models', file_name)
+    return pickle.load(open(file_name, 'rb'))
 
 
 def my_transformer(df, features_to_transform, model=None, model_path='transformer_model.pkl'):
