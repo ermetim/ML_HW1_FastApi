@@ -165,13 +165,13 @@ def upload_csv(file: UploadFile):
     prediction = np.round(np.exp(model.predict(X_test)) - 1)
     df_test['prediction'] = prediction
 
-    try:
-        os.mkdir('results')
-    except:
-        pass
-    file_path = os.path.join(os.getcwd(), 'results', 'prediction.csv')
-    df_test.to_csv(file_path)
-    response = FileResponse(path=file_path, media_type='text/csv', filename='prediction.csv')
+    # try:
+    #     os.mkdir('results')
+    # except:
+    #     pass
+    # file_path = os.path.join(os.getcwd(), 'results', 'prediction.csv')
+    df_test.to_csv('prediction.csv')
+    response = FileResponse(path='prediction.csv', media_type='text/csv', filename='prediction.csv')
     return response
 
 # uvicorn main:app --host 0.0.0.0 --port 8000 # For render.com
