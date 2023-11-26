@@ -103,7 +103,7 @@ def preprocessing(df):
     df_test['torque_isna'] = df_test['torque'].apply(lambda x: 0 if pd.notnull(x) else 1)
 
     # Медианы по маркам и моделям машин
-    median_values = load_model(file_name='https://github.com/ermetim/ML_HW1_FastApi/blob/main/models/median_values_model.data')
+    median_values = load_model(file_name='/models/median_values_model.data')
 
     # заполнение nan медианами по марке и модели
     def fill_na(row):
@@ -137,7 +137,7 @@ def preprocessing(df):
     cat_features = X_test.dtypes[X_test.dtypes == 'object'].index
 
     # OHE
-    X_test = my_transformer(X_test, cat_features, model_path='https://github.com/ermetim/ML_HW1_FastApi/blob/main/models/ohe_model.pkl')
+    X_test = my_transformer(X_test, cat_features, model_path='/models/ohe_model.pkl')
     # удаление трансформированных столбцов
     X_test = X_test.drop(columns=cat_features)
     return X_test
@@ -165,7 +165,7 @@ def upload_csv(file: UploadFile):
     # # но это просто хорошая практика, так гарантируется корректное освобождение ресурсов
 
     X_test = preprocessing(df_test)
-    model = load_model(file_name='https://github.com/ermetim/ML_HW1_FastApi/blob/main/models/LinearRegression_model.pkl')
+    model = load_model(file_name='/models/LinearRegression_model.pkl')
     # prediction = model.predict(X_test)
     prediction = np.round(np.exp(model.predict(X_test)) - 1)
     df_test['prediction'] = prediction
