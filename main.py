@@ -154,10 +154,10 @@ def upload_csv(file: UploadFile):
     content = file.file.read() #считываем байтовое содержимое
     buffer = BytesIO(content) #создаем буфер типа BytesIO
     df_test = pd.read_csv(buffer) #, index_col=0)
-    buffer.close()
-    file.close()  # закрывается именно сам файл
-    # на самом деле можно не вызывать .close(), тк питон сам освобождает память при уничтожении объекта
-    # но это просто хорошая практика, так гарантируется корректное освобождение ресурсов
+    # buffer.close()
+    # file.close()  # закрывается именно сам файл
+    # # на самом деле можно не вызывать .close(), тк питон сам освобождает память при уничтожении объекта
+    # # но это просто хорошая практика, так гарантируется корректное освобождение ресурсов
 
     X_test = preprocessing(df_test)
     model = load_model(file_name='LinearRegression_model.pkl')
