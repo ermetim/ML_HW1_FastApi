@@ -80,7 +80,6 @@ Pygments
 pyparsing
 python-json-logger
 python-multipart
-pywin32
 PyYAML
 pyzmq
 qtconsole
