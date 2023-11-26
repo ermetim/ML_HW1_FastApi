@@ -1,0 +1,11 @@
+,name,year,km_driven,fuel,seller_type,transmission,owner,mileage,engine,max_power,torque,seats,prediction
+0,Maruti Wagon R LXI,2013,58343,Petrol,Trustmark Dealer,Manual,First Owner,21.79 kmpl,998 CC,67.05 bhp,90Nm@ 3500rpm,5.0,290763.0
+1,Maruti Swift Dzire VDI,2014,90000,Diesel,Individual,Manual,First Owner,23.4 kmpl,1248 CC,74 bhp,190Nm@ 2000rpm,5.0,420476.0
+2,Maruti Wagon R LXI,2005,140000,Petrol,Individual,Manual,Second Owner,18.9 kmpl,998 CC,67.1 bhp,90Nm@ 3500rpm,5.0,116706.0
+3,Maruti Swift VXI Deca,2016,32000,Petrol,Individual,Manual,First Owner,20.4 kmpl,1197 CC,81.80 bhp,113Nm@ 4200rpm,5.0,460327.0
+4,Ford Ecosport 1.5 DV5 MT Titanium Optional,2017,77524,Diesel,Dealer,Manual,First Owner,22.7 kmpl,1498 CC,89.84 bhp,204Nm@ 2000-2750rpm,5.0,664812.0
+5,Ford Ikon 1.6 Really Sport,2003,80000,Petrol,Individual,Manual,Third Owner,14.2 kmpl,1597 CC,92 bhp,130@ 2500(kgm@ rpm),5.0,103827.0
+6,Maruti Ritz VDi,2012,72072,Diesel,Dealer,Manual,First Owner,21.1 kmpl,1248 CC,73.9 bhp,113Nm@ 4500rpm,5.0,354450.0
+7,Hyundai Xcent 1.1 CRDi Base,2015,55000,Diesel,Dealer,Manual,First Owner,24.4 kmpl,1120 CC,71 bhp,180.4Nm@ 1750-2500rpm,5.0,465930.0
+8,Tata Tiago 1.2 Revotron XZ,2017,28000,Petrol,Individual,Manual,Second Owner,23.84 kmpl,1199 CC,84 bhp,114Nm@ 3500rpm,5.0,315721.0
+9,Renault KWID RXL,2019,15000,Petrol,Individual,Manual,First Owner,25.17 kmpl,799 CC,53.3 bhp,72Nm@ 4386rpm,5.0,443983.0
