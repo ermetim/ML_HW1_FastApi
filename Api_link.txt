@@ -1,0 +1,1 @@
+https://ml-hw1-fastapi.onrender.com
