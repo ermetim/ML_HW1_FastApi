@@ -149,6 +149,11 @@ FastAPI который создали инструкцией app = FastAPI())
 Обращение http://127.0.0.1:8000
 """
 
+@app.get("/")
+def root():
+    return {"message": "The service is live"}
+
+
 @app.post('/predict_items_csv', summary="Predict by csv")
 def upload_csv(file: UploadFile):
     content = file.file.read() #считываем байтовое содержимое
