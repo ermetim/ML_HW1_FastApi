@@ -170,10 +170,10 @@ df_train = df_train.drop_duplicates(subset=col, keep='last').reset_index(drop=Tr
 
 # Разделение на признаки и целевой признак с удалением части категориальных признаков
 y_train = df_train['selling_price']
-X_train = df_train.drop(columns=['name', 'selling_price', 'model'])
+X_train = df_train.drop(columns=['name', 'selling_price']) #, 'model'])
 
 y_test = df_test['selling_price']
-X_test = df_test.drop(columns=['name', 'selling_price', 'model'])
+X_test = df_test.drop(columns=['name', 'selling_price']) #, 'model'])
 
 # # StandardScaler
 # num_features = (df_train.drop(columns=['selling_price', 'torque_isna'])
