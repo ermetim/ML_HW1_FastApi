@@ -8,6 +8,7 @@ import pickle
 
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import OneHotEncoder
+from sklearn.metrics import r2_score
 
 random.seed(42)
 np.random.seed(42)
@@ -210,4 +211,8 @@ y_train = np.log(y_train + 1)
 model = LinearRegression()
 model.fit(X_train, y_train)
 save_model(model, file_name='LinearRegression_model.pkl')
+model = load_model(file_name='LinearRegression_model.pkl')
+prediction = np.round(np.exp(model.predict(X_test)) - 1)
+score_r2 = r2_score(y_test, prediction)
+print('Метрика R2 = ', round(score_r2, 3))
 print('Pipeline finished successfully')
