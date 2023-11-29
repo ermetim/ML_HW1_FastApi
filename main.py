@@ -131,7 +131,7 @@ def preprocessing(df):
     df_test['seats'] = df_test['seats'].astype('object')
 
     # Удаление ненужных признаков
-    X_test = df_test.drop(columns=['name', 'model'])
+    X_test = df_test.drop(columns=['name']) #, 'model'])
 
     # Список категориальных признаков для OHE
     cat_features = X_test.dtypes[X_test.dtypes == 'object'].index
