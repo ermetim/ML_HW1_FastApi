@@ -6,6 +6,7 @@ import re
 import os
 import pickle
 
+from Tools.scripts.dutree import display
 from fastapi import FastAPI, HTTPException, UploadFile
 from pydantic import BaseModel
 from typing import List
@@ -153,7 +154,7 @@ FastAPI который создали инструкцией app = FastAPI())
 class Item(BaseModel):
     name: str
     year: int
-    selling_price: int
+    # selling_price: int
     km_driven: int
     fuel: str
     seller_type: str
@@ -175,10 +176,10 @@ def upload_csv(file: UploadFile):
     content = file.file.read() #считываем байтовое содержимое
     buffer = BytesIO(content) #создаем буфер типа BytesIO
     df_test = pd.read_csv(buffer) #, index_col=0)
-    # buffer.close()
-    # file.close()  # закрывается именно сам файл
-    # # на самом деле можно не вызывать .close(), тк питон сам освобождает память при уничтожении объекта
-    # # но это просто хорошая практика, так гарантируется корректное освобождение ресурсов
+    buffer.close()
+    file.close()  # закрывается именно сам файл
+    # на самом деле можно не вызывать .close(), тк питон сам освобождает память при уничтожении объекта
+    # но это просто хорошая практика, так гарантируется корректное освобождение ресурсов
 
     X_test = preprocessing(df_test)
     model = load_model(file_name='models/LinearRegression_model.pkl')
@@ -186,14 +187,23 @@ def upload_csv(file: UploadFile):
     prediction = np.round(np.exp(model.predict(X_test)) - 1)
     df_test['prediction'] = prediction
 
-    # try:
-    #     os.mkdir('results')
-    # except:
-    #     pass
-    # file_path = os.path.join(os.getcwd(), 'results', 'prediction.csv')
     df_test.to_csv('prediction.csv')
     response = FileResponse(path='prediction.csv', media_type='text/csv', filename='prediction.csv')
     return response
+
+@app.post('/predict_items_json', summary="Predict by json")
+def upload_json(file: UploadFile) -> float:
+    contents = file.file
+    json_file = json.load(contents)
+    data = {k: list(v.values()) for k, v in json_file.items()}
+    df_test = pd.DataFrame.from_dict(data)
+    X_test = preprocessing(df_test)
+    model = load_model(file_name='models/LinearRegression_model.pkl')
+    prediction = np.round(np.exp(model.predict(X_test)) - 1)
+    df_test['prediction'] = prediction
+    # print(df_test)
+
+    return  prediction[0]
 
 # uvicorn main:app --host 0.0.0.0 --port 8000 # For render.com
 
