@@ -10,6 +10,9 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.metrics import r2_score
 
+import warnings
+warnings.filterwarnings('ignore')
+
 random.seed(42)
 np.random.seed(42)
 RANDOM = 42

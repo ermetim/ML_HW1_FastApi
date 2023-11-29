@@ -149,6 +149,22 @@ FastAPI который создали инструкцией app = FastAPI())
 Обращение http://127.0.0.1:8000
 """
 
+
+class Item(BaseModel):
+    name: str
+    year: int
+    selling_price: int
+    km_driven: int
+    fuel: str
+    seller_type: str
+    transmission: str
+    owner: str
+    mileage: str
+    engine: str
+    max_power: str
+    torque: str
+    seats: float
+
 @app.get("/")
 def root():
     return {"message": "The service is live"}
